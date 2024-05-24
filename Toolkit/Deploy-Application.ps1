@@ -103,9 +103,9 @@ Try {
     }
 
     ##*===============================================
-    ## TODO * VARIABLE DECLARATION
+    ## * VARIABLE DECLARATION
     ##*===============================================
-    ## Variables: Application
+    ## TODO Variables: Application
     [String]$appVendor = ''
     [String]$appName = ''
     [String]$appVersion = ''
@@ -113,7 +113,7 @@ Try {
     [String]$appLang = 'EN'
     [String]$appRevision = '01'
     [String]$appScriptVersion = '1.0.0'
-    [String]$appScriptDate = 'XX/XX/20XX'
+    [String]$appScriptDate = '05/24/20XX'
     [String]$appScriptAuthor = 'Marwan Taha'
     ##*===============================================
     ## Variables: Install Titles (Only set here to override defaults set by the toolkit)
@@ -176,7 +176,7 @@ Try {
 
     If ($deploymentType -ine 'Uninstall' -and $deploymentType -ine 'Repair') {
         ##*===============================================
-        ##* PRE-INSTALLATION
+        ## * PRE-INSTALLATION
         ##*===============================================
         [String]$installPhase = 'Pre-Installation'
 
@@ -186,11 +186,11 @@ Try {
         ## Show Progress Message (with the default message)
         Show-InstallationProgress
 
-        ## <Perform Pre-Installation tasks here>
+        ## TODO <Perform Pre-Installation tasks here>
 
 
         ##*===============================================
-        ##* INSTALLATION
+        ## * INSTALLATION
         ##*===============================================
         [String]$installPhase = 'Installation'
 
@@ -204,15 +204,15 @@ Try {
             }
         }
 
-        ## <Perform Installation tasks here>
-
+        ## TODO <Perform Installation tasks here>
+        Execute-MSI -Action 'Install' -Path 'Adobe_FlashPlayer_11.2.202.233_x64_EN.msi' -Transform 'Adobe_FlashPlayer_11.2.202.233_x64_EN_01.mst' -Parameters '/QN'
 
         ##*===============================================
-        ##* POST-INSTALLATION
+        ## * POST-INSTALLATION
         ##*===============================================
         [String]$installPhase = 'Post-Installation'
 
-        ## <Perform Post-Installation tasks here>
+        ## TODO <Perform Post-Installation tasks here>
 
         ## Display a message at the end of the install
         If (-not $useDefaultMsi) {
@@ -221,7 +221,7 @@ Try {
     }
     ElseIf ($deploymentType -ieq 'Uninstall') {
         ##*===============================================
-        ##* PRE-UNINSTALLATION
+        ## * PRE-UNINSTALLATION
         ##*===============================================
         [String]$installPhase = 'Pre-Uninstallation'
 
@@ -231,11 +231,11 @@ Try {
         ## Show Progress Message (with the default message)
         Show-InstallationProgress
 
-        ## <Perform Pre-Uninstallation tasks here>
+        ## TODO <Perform Pre-Uninstallation tasks here>
 
 
         ##*===============================================
-        ##* UNINSTALLATION
+        ## * UNINSTALLATION
         ##*===============================================
         [String]$installPhase = 'Uninstallation'
 
@@ -247,15 +247,15 @@ Try {
             Execute-MSI @ExecuteDefaultMSISplat
         }
 
-        ## <Perform Uninstallation tasks here>
+        ## TODO <Perform Uninstallation tasks here>
 
 
         ##*===============================================
-        ##* POST-UNINSTALLATION
+        ## * POST-UNINSTALLATION
         ##*===============================================
         [String]$installPhase = 'Post-Uninstallation'
 
-        ## <Perform Post-Uninstallation tasks here>
+        ## TODO <Perform Post-Uninstallation tasks here>
 
 
     }
